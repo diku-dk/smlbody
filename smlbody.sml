@@ -389,7 +389,8 @@ struct
       (if #paused s then
          #bodies s
        else
-         Engine.Entry.step (#ctx s) (1, #bodies s)
+         Engine.Entry.step (#ctx s)
+           (Int32.fromInt (Real64.round (1.0 / td)), #bodies s)
          before Engine.Opaque.bodies.free (#bodies s))
 
   fun handl_rotation td (s: state) : state =
