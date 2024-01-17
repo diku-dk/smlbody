@@ -302,8 +302,6 @@ struct
     , bodies = bodies
     }
 
-  val eps = 50.0
-
   fun screen_to_world x y (s: state) =
     let
       val x_dist = #1 (#br s) - #1 (#ul s)
@@ -514,7 +512,7 @@ struct
             val s = let val (x, y, b) = Tigr.mouse win
                     in if b > 0 then blob x y s else s
                     end
-            val s = step 0.01 s
+            val s = step 0.1 s
           in
             Tigr.update win;
             loop s

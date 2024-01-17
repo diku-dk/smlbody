@@ -11,7 +11,7 @@ def dot (a: vec) (b: vec) =
 
 type body = {pos: vec, vel: vec, mass: f64}
 
-def EPSILON : f64 = 2
+def EPSILON : f64 = 50
 
 def accel (x: body) (y: body): vec =
   let r = y.pos `vecsub` x.pos
