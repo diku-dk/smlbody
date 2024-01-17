@@ -1,0 +1,8 @@
+MLB
+lib/
+libtigr.so
+smlbody
+*.o
+*.a
+engine.*
+!engine.fut
