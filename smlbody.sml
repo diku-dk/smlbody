@@ -356,7 +356,7 @@ struct
       val blobN = 20
       fun mv ({pos = (x0, y0, z0), vel, mass}: body) : body =
         {pos = (x0 + x, y0 + y, z0 + z), vel = vel, mass = mass}
-      val bodies = List.tabulate (blobN, fn _ => mk_body_cloud 3.0)
+      val bodies = List.tabulate (blobN, fn _ => mv (mk_body_cloud 3.0))
     in
       withBodies s (add_bodies (#ctx s) (#bodies s) bodies)
     end
