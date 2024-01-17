@@ -26,12 +26,12 @@ engine.smlfut.c: engine.json
 libengine.a: engine.o engine.smlfut.o
 	ar r $@ $^
 
-$(PROGNAME): $(PROGNAME).mlb $(PROGNAME).sml libtigr.so libengine.a
+$(PROGNAME): $(PROGNAME).mlb $(PROGNAME).sml libtigr.a libengine.a
 	MLCOMP=mlkit $(MLKIT) -ldexe '$(CC) $(LDFLAGS)' $(LIBS) -o $@ $<
 
-libtigr.so: lib/github.com/diku-dk/sml-tigr/clib/libtigr.so
-	cp $< $@
+libtigr.a: lib/github.com/diku-dk/sml-tigr/clib/tigr.o lib/github.com/diku-dk/sml-tigr/clib/tigr2.o
+	ar r $@ $^
 
 .PHONY: clean
 clean:
-	rm -rf $(PROGNAME) MLB libtigr.so *.o *.smlfut.c libengine.a engine.h engine.c engine.sml engine.sig engine.json
+	rm -rf $(PROGNAME) MLB libtigr.a *.o *.smlfut.c libengine.a engine.h engine.c engine.sml engine.sig engine.json
