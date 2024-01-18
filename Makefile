@@ -32,6 +32,12 @@ $(PROGNAME): $(PROGNAME).mlb $(PROGNAME).sml libtigr.a libengine.a
 libtigr.a: lib/github.com/diku-dk/sml-tigr/clib/tigr.o lib/github.com/diku-dk/sml-tigr/clib/tigr2.o
 	ar r $@ $^
 
+lib/github.com/diku-dk/sml-tigr/clib/tigr.o lib/github.com/diku-dk/sml-tigr/clib/tigr2.o: lib
+	make -C lib/github.com/diku-dk/sml-tigr/clib/
+
+lib:
+	smlpkg sync
+
 .PHONY: clean
 clean:
 	rm -rf $(PROGNAME) MLB libtigr.a *.o *.smlfut.c libengine.a engine.h engine.c engine.sml engine.sig engine.json
