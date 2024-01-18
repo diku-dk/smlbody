@@ -19,6 +19,8 @@ backends from working.
 
 * [`mlkit`](https://elsman.com/mlkit/)
 
+* [`smlpkg`](https://github.com/diku-dk/smlpkg)
+
 * [`smlfut`](https://github.com/diku-dk/smlfut)
 
 * Whatever X11/OpenGL libraries are needed by [TIGR](https://github.com/erkkah/tigr).
